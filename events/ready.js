@@ -1,7 +1,10 @@
 const readline = require('readline');
 const axios = require('axios');
 const Discord = require('discord.js');
-
+const {
+  ActivityType,
+  PresenceUpdateStatus
+} = require('discord.js')
 module.exports = {
 	name: 'ready',
 	once: true,
@@ -34,6 +37,17 @@ module.exports = {
 			// Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
 			embed.footer.text = "is.gd/ticketbot" + client.embeds.ticketOpened.footer.text.replace("is.gd/ticketbot", "") // Please respect the LICENSE :D
 			// Please respect the project by keeping the credits, (if it is too disturbing you can credit me in the "about me" of the bot discord)
+
+			client.user.setPresence({
+				activities: [
+					{
+						name: `Modulo de Tickets Lexxuz`,
+						type: ActivityType.Playing,
+						// url: 'https://twitch.tv/Samuu_X'
+					}
+				],
+				status: PresenceUpdateStatus.Idle
+			})
 
 			const row = new Discord.ActionRowBuilder()
 			.addComponents(
